@@ -1,37 +1,50 @@
 import requests, os
 
-archetype = input("Enter an archetype: ")
+def fetch_card(archetype) -> list:
+    params = {
+        'archetype': f'{archetype}'
+    }
 
-params = {
-    "archetype": f"{archetype}"
-}
+    API_URL = 'https://db.ygoprodeck.com/api/v7/cardinfo.php'
 
-response = requests.get('https://db.ygoprodeck.com/api/v7/cardinfo.php',params = params)
+    response = requests.get(API_URL,params=params)
 
-if response.status_code == 200:
-    print("Connection was successful!")
-else:
-    print("Connection Failed!!!")
-    print("Aborting...")
+    if response.status_code == 200:
+        print('Connection was successful')
+        return response.json().get('data',[])
+    else:
+        print(f'Connection failed!!! (Status code: {response.status_code})')
+        return []
 
-def fetch_card(fetched_response) -> list:
-    return fetched_response.json()['data']
+def arrange(cards):
+    result = []
 
-stored_cards = fetch_card(response)
+    for card in cards:
+        card_name = card.get('name','Unknown') 
+        card_atk = card.get('atk','N/A')
+        card_def = card.get('def','N/A')
+        card_type = card.get('type','Unknown')
+        img_url = card.get('card_images',[{}])[0].get('image_url','Unavailable')
 
-def arrange(s):
-    for dictionary in s:
-        if 'atk' in dictionary:
-            print(f"Name: {dictionary['name']},"
-                  f"Atk: {dictionary['atk']}, "
-                  f"Def: {dictionary['def']}, "
-                  f"Type: {dictionary['type']}"
-                  f"Img: {dictionary['card_images'][0]['image_url']}")
-        else:
-            print(f"{dictionary['name']}, "
-                  f"Img: {dictionary['card_images'][0]['image_url']}")
+        formatted_card =  (f"Name: {card_name}\n"
+                           f"Attack: {card_atk}\n"
+                           f"Defence: {card_def}\n"
+                           f"Type: {card_type}\n"
+                           f"Image_Url: {img_url}\n")
+        result.append(formatted_card)
 
-    
+    return result
 
 if __name__ == "__main__":
-    arrange(stored_cards)
+    archetype = input("Enter an archetype: ").strip()
+    
+    if not archetype:
+        print("Invalid archetype! Try again")
+    else:
+        stored_cards = fetch_card(archetype)
+
+        if stored_cards:
+            card_details = arrange(stored_cards)
+
+            for detail in card_details:
+                print(detail)
