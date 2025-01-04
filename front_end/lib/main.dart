@@ -27,9 +27,18 @@ class MyBox extends StatelessWidget{
 }
 
 void main(){
-  runApp(const MaterialApp(
+  runApp( MaterialApp(
     debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body:MyBox(word: Text('Yolo'))),
+        appBar: AppBar(
+          title:Text('Bruh',textDirection: TextDirection.ltr,),
+          backgroundColor: const Color.fromRGBO(33, 150, 243, 1),
+          shadowColor: Colors.red,
+          leading: IconButton(
+            onPressed: (){},
+            icon: const Icon(Icons.menu),
+            tooltip: 'Menu',)
+          ),
+        body:const MyBox(word: Text('Yolo'))),
   ));
 }
