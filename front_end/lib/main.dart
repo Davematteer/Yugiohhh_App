@@ -31,11 +31,21 @@ class _CounterState extends State<CounterPage>{
     return Scaffold(
       body: Center(
         child: Container(
-          height: 100,
-          width: 100,
-          child: ElevatedButton(
-            onPressed: (){},
-            child: Text('Increment: $_count') )
+          height: 500,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(),
+            child: Column(
+              children: [
+                Text('Count: $_count'),
+                ElevatedButton(
+                  onPressed: ()=> setState(()=>_count++),
+                  child: Text('Increment') ),
+                ElevatedButton(
+                  onPressed: ()=> setState(() => _count--), 
+                  child: Text('Decrement'))
+              ],
+            ),
+          )
         ),
       ),
     );
