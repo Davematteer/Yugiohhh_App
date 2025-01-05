@@ -24,10 +24,20 @@ class CounterPage extends StatefulWidget{
 }
 class _CounterState extends State<CounterPage>{
 
+  int _count = 0;
+
   @override
   Widget build(BuildContext context){
     return Scaffold(
-      body: ,
+      body: Center(
+        child: Container(
+          height: 100,
+          width: 100,
+          child: ElevatedButton(
+            onPressed: (){},
+            child: Text('Increment: $_count') )
+        ),
+      ),
     );
   }
 
