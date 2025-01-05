@@ -1,47 +1,35 @@
 import 'package:flutter/material.dart';
 
 void main(){
-  runApp(
-    const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Counter()
-        )
-      )
-    )
-  );
+  runApp();
 }
 
-
-class Counter extends StatefulWidget{
-  const Counter({super.key});
-
-  @override 
-  State<Counter> createState() => _counterState();
-
-}
-
-class _counterState extends State<Counter>{
-
-  int _count = 0;
-
-  void _increment(){
-    setState(() {
-      _count++;
-    });
-  }
+class MainPage extends StatelessWidget{
+  const MainPage({super.key});
 
   @override
   Widget build(BuildContext context){
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        ElevatedButton(
-          onPressed: _increment,
-          child: const Text('Increment')),
-          const SizedBox(width: 16,),
-          Text('Count: $_count')
-      ],
+    return const MaterialApp(
+      home: 
     );
   }
+}
+
+
+class CounterPage extends StatefulWidget{
+  const CounterPage({super.key});
+
+  @override 
+  State<CounterPage> createState() => _CounterState();
+}
+class _CounterState extends State<CounterPage>{
+
+  @override
+  Widget build(BuildContext context){
+    return Scaffold(
+      body: ,
+    );
+  }
+
+
 }
