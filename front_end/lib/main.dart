@@ -14,8 +14,8 @@ class Layout extends StatelessWidget{
     return Scaffold(
       body: Center(
         child: Container(
-          height: 500,
-          width: 600,
+          height: 700,
+          width: 800,
           
           decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
@@ -50,10 +50,28 @@ class Layout extends StatelessWidget{
                        icon: const Icon(Icons.star),
                        tooltip: 'Like',),
                        Text('126'),
-
+                       Padding(
+                         padding: const EdgeInsets.all(8.0),
+                         child: IconButton(
+                          onPressed: (){}, 
+                          icon: const Icon(Icons.menu_sharp),
+                          tooltip: 'Menu',),
+                       ),
+                       IconButton(onPressed: (){}, 
+                       icon: Icon(Icons.upload_rounded),
+                       tooltip: 'Upload',)
+                       
                     ],),
                 ),
-                Container(padding:const EdgeInsets.all(10),),
+                Container(
+
+                  padding:const EdgeInsets.all(10),
+                  child: const Text(
+                    '102 Cool iPhone Wallpapers\n & Aesthetic Backgrounds',
+                    style: TextStyle(fontSize: 20,
+                                    fontWeight: FontWeight.bold),
+                      ),
+                  ),
               ],
             ),
           ],),
