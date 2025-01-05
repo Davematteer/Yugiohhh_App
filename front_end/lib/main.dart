@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 void main(){
   runApp(const MaterialApp(
+    debugShowCheckedModeBanner: false,
     home: Layout()
   ));
 }
@@ -39,7 +40,22 @@ class Layout extends StatelessWidget{
                 fit: BoxFit.cover,),
               ),
               ),
-            Column(),
+             Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Row(
+                    children: [
+                      IconButton(onPressed: (){},
+                       icon: const Icon(Icons.star),
+                       tooltip: 'Like',),
+                       Text('126'),
+
+                    ],),
+                ),
+                Container(padding:const EdgeInsets.all(10),),
+              ],
+            ),
           ],),
         ),
       )
