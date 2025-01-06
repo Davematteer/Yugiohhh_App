@@ -1,55 +1,34 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main(){
-  runApp(const MainPage());
+  runApp(const MyApp());
 }
 
-class MainPage extends StatelessWidget{
-  const MainPage({super.key});
+class MyApp extends StatelessWidget{
+  const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context){
-    return const MaterialApp(
-      home: CounterPage()
-    );
-  }
-}
-
-
-class CounterPage extends StatefulWidget{
-  const CounterPage({super.key});
-
-  @override 
-  State<CounterPage> createState() => _CounterState();
-}
-class _CounterState extends State<CounterPage>{
-
-  int _count = 0;
-
-  @override
-  Widget build(BuildContext context){
-    return Scaffold(
-      body: Center(
-        child: Container(
-          height: 500,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(),
-            child: Column(
-              children: [
-                Text('Count: $_count'),
-                ElevatedButton(
-                  onPressed: ()=> setState(()=>_count++),
-                  child: Text('Increment') ),
-                ElevatedButton(
-                  onPressed: ()=> setState(() => _count--), 
-                  child: Text('Decrement'))
-              ],
-            ),
-          )
-        ),
+  Widget build(BuildContext context) {
+    return const CupertinoApp(
+      title: 'Flutter App',
+      theme: CupertinoThemeData(
+        brightness: Brightness.light,
       ),
+      home: CupertinoPageScaffold(
+        navigationBar: CupertinoNavigationBar(
+          backgroundColor: CupertinoColors.systemGrey,
+          middle: Text('Flutter layout demo'),
+        ),
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('Hello niggas')
+          ],),),
+      ),
+        
     );
   }
-
-
 }
+
