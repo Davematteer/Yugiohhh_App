@@ -28,9 +28,15 @@ class _myappState extends State<MyApp>{
 
   @override
   Widget build(BuildContext context){
-    return const MaterialApp(
+    return  MaterialApp(
+      title: 'Fetchign data nigga',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.purple),
+      ),
       home: Scaffold(
-
+              body: Container(
+                
+              ),
       )
     );
   }
