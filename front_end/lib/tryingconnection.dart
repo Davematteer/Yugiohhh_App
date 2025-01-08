@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:front_end/main.dart';
+
 import 'package:http/http.dart' as http;
 
 void main(){
@@ -34,8 +34,22 @@ class _myappState extends State<MyApp>{
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.purple),
       ),
       home: Scaffold(
-              body: Container(
-                
+              appBar: AppBar(
+                title: const Text('Still fetching this bitch'),
+              ),
+              body: Center(
+                child: FutureBuilder(
+                  future: futureAlbum, 
+                  builder: (context,snapshot){
+                    if (snapshot.hasData){
+                      return Text(snapshot.data!.title);
+                    }
+                    else if (snapshot.hasError){
+                      return Text('${snapshot.error}');
+                    }
+                    return const CircularProgressIndicator();
+                  },
+                  ),
               ),
       )
     );
