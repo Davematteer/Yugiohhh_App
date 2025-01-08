@@ -12,10 +12,19 @@ class MyApp extends StatefulWidget{
   const MyApp({super.key});
 
   @override
-  State<MyApp> createState() => myappState();
+  State<MyApp> createState() => _myappState();
 }
 
-class myappState extends State<MyApp>{
+// ignore: camel_case_types
+class _myappState extends State<MyApp>{
+
+  late Future<Album> futureAlbum;
+
+  @override
+  void initState() {
+    super.initState();
+    futureAlbum = fetchAlbum();
+  }
 
   @override
   Widget build(BuildContext context){
