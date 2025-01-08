@@ -5,18 +5,18 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 void main(){
-  runApp(const MyApp());
+  runApp(const MyApp2());
 }
 
-class MyApp extends StatefulWidget{
-  const MyApp({super.key});
+class MyApp2 extends StatefulWidget{
+  const MyApp2({super.key});
 
   @override
-  State<MyApp> createState() => _myappState();
+  State<MyApp2> createState() => _myappState();
 }
 
 // ignore: camel_case_types
-class _myappState extends State<MyApp>{
+class _myappState extends State<MyApp2>{
 
   late Future<Album> futureAlbum;
 
