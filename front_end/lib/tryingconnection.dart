@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 
 import 'package:http/http.dart' as http;
 
-void main(){
-  runApp(const MyApp2());
-}
+// void main(){
+//   runApp(const MyApp2());
+// }
 
 class MyApp2 extends StatefulWidget{
   const MyApp2({super.key});
