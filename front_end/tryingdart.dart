@@ -35,10 +35,3 @@ class _appState extends State<MyApp>{
   }
 }
 
-// now we want to send data to the internet
-// so how are we gonna do this 
-// we woudl have to send a post request to the server 
-
-final channel = WebSocketChannel.connect(
-  Uri.parse('wss://echo.websocket.events')
-  );
