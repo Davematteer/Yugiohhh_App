@@ -32,7 +32,8 @@ class myappState extends State<MyApp>{
         "born" : 0 
       };
 
-      db.collection('users').add(user);
+      db.collection('users').add(user).then((DocumentReference doc) => 
+                                            print('User add with ID: ${doc.id}') );
     }
 
 
