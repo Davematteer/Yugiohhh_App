@@ -65,4 +65,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'test-337dc.firebasestorage.app',
     iosBundleId: 'com.example.frontEnd',
   );
+
 }
