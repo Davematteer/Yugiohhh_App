@@ -10,13 +10,30 @@ void main() async {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget{
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold()
-    );
-  }
+  State<MyApp> createState() => myappState();
+
+}
+//ignore: camel_case_types
+class myappState extends State<MyApp>{
+
+    int _number = 1;
+    void _increment() => setState(()=> _number++);
+
+    @override
+    Widget build(BuildContext context){
+      return MaterialApp(
+        home: Scaffold(
+          body: Center(
+            child: ElevatedButton(
+              onPressed: _increment, 
+              child: Text('UwU: $_number')),
+          ),
+        )
+
+      );
+    }
 }
